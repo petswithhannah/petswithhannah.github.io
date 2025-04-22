@@ -61,6 +61,31 @@
             width: 100%;
         }
     </style>
+   
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init({
+              publicKey: "1W0QnN5KgCk83VCth",
+            });
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            document.getElementById('contact-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // these IDs from the previous steps
+                emailjs.sendForm('contact_service', 'contact_form', this)
+                    .then(() => {
+                        console.log('SUCCESS!');
+                    }, (error) => {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
+
 </head>
 <body class="paw-bg">
     <!-- Navigation -->
@@ -96,7 +121,7 @@
                     <span class="text-green-500">For Your Furry Friend</span>
                 </h1>
                 <p class="text-gray-600 text-lg mb-8">
-                    Certified dog groomer, trainer, and sitter with 8+ years of experience.
+                    Certified dog groomer, trainer, and sitter with 3+ years of experience.
                     Your dog's happiness and well-being are my top priority.
                 </p>
                 <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
@@ -120,7 +145,7 @@
                             </div>
                             <div>
                                 <p class="font-bold text-gray-800">Certified Professional</p>
-                                <p class="text-sm text-gray-600">2+ Years Experience</p>
+                                <p class="text-sm text-gray-600">3+ Years Experience</p>
                             </div>
                         </div>
                     </div>
@@ -452,22 +477,23 @@
                         </div>
 
                         <div class="md:w-1/2 p-10">
-                            <form id="contactForm" class="space-y-6">
+                            <form id="contact-form" class="space-y-6">
+                            	<input type="hidden" name="time" value="Mar 10 2025 08:46">
                                 <div>
                                     <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
-                                    <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
+                                    <input type="text" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
-                                    <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
+                                    <input type="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent" required>
                                 </div>
                                 <div>
                                     <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                                    <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                    <input type="tel" name="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
                                 </div>
                                 <div>
-                                    <label for="service" class="block text-gray-700 font-medium mb-2">Service Needed</label>
-                                    <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                                    <label for="title" class="block text-gray-700 font-medium mb-2">Service Needed</label>
+                                    <select name="title" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
                                         <option value="">Select a service</option>
                                         <option value="grooming">Grooming</option>
                                         <option value="training">Training</option>
@@ -478,7 +504,7 @@
                                 </div>
                                 <div>
                                     <label for="message" class="block text-gray-700 font-medium mb-2">Message</label>
-                                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
+                                    <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"></textarea>
                                 </div>
                                 <button type="submit" class="btn-primary text-white font-semibold py-3 px-6 rounded-full w-full">
                                     Send Message
@@ -707,24 +733,6 @@
             });
         });
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const message = document.getElementById('message').value;
-
-            // Here you would typically send this data to a server
-            // For this example, we'll just show an alert
-            alert(`Thank you, ${name}! Your message about ${service || 'our services'} has been received. We'll contact you soon at ${email} or ${phone}.`);
-
-            // Reset form
-            this.reset();
-        });
 
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
