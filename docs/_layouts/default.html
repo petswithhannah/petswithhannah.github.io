@@ -1,53 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title }} - {{ site.title }}</title>
-    
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet" />
 
-    <script>
-        tailwind.config = {
-          theme: {
-            extend: {
-              colors: {
-                "primary": "#a8216e", // Your brand pink [cite: 25]
-                "secondary": "#006666", // Your brand teal [cite: 22]
-                "surface": "#ffffff",
-                "on-surface": "#0e0e0e", // High contrast black [cite: 30]
-                "surface-variant": "#f3f0ef" // Light stone [cite: 22]
-              },
-              fontFamily: {
-                "headline": ["Plus Jakarta Sans", "sans-serif"],
-                "body": ["Plus Jakarta Sans", "sans-serif"]
-              }
-            }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ page.title }} - {{ site.title }}</title>
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
+    rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#a8216e", // Your brand pink [cite: 25]
+            "secondary": "#006666", // Your brand teal [cite: 22]
+            "surface": "#ffffff",
+            "on-surface": "#0e0e0e", // High contrast black [cite: 30]
+            "surface-variant": "#f3f0ef" // Light stone [cite: 22]
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            "body": ["Plus Jakarta Sans", "sans-serif"]
           }
         }
-    </script>
+      }
+    }
+  </script>
 
-    <style>
-        .glass-nav { 
-            background-color: rgba(255, 255, 255, 0.8); 
-            backdrop-filter: blur(20px); 
-            border-bottom: 1px solid #e5e5e5;
+  <style>
+    .glass-nav {
+      background-color: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .text-huge {
+      font-size: clamp(3rem, 10vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+    }
+
+    .event-arrow {
+      clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
+    }
+  </style>
+
+
+  <style>
+    :root {
+      /* Define your "easy-change" variables here */
+      --bg-color: #006666;
+      /* Your brand teal [cite: 23] */
+      --text-color: #ffffff;
+      /* High contrast white for teal bg */
+      --brand-pink: #a8216e;
+      /* Your primary pink [cite: 25] */
+      --brand-teal: #006666;
+      /* Your secondary teal [cite: 23] */
+    }
+
+    .glass-nav {
+      background-color: rgba(0, 102, 102, 0.8);
+      /* Matches teal bg */
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  </style>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            "surface": "var(--bg-color)",
+            /* Maps to your teal variable */
+            "on-surface": "var(--text-color)",
+            "primary": "var(--brand-pink)",
+            "secondary": "var(--brand-teal)"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans", "sans-serif"],
+            [cite: 31]
+            "body": ["Plus Jakarta Sans", "sans-serif"][cite: 31]
+          }
         }
-        .text-huge {
-            font-size: clamp(3rem, 10vw, 8rem);
-            line-height: 0.9;
-            letter-spacing: -0.04em;
-        }
-        .event-arrow {
-            clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
-        }
-    </style>
+      }
+    }
+  </script>
+
+
 </head>
+
 <body class="bg-surface font-body text-on-surface antialiased">
-    {% include header.html %} 
-    <main>{{ content }}</main>
-    {% include footer.html %} 
+  {% include header.html %}
+  <main>{{ content }}</main>
+  {% include footer.html %}
 </body>
+
 </html>
