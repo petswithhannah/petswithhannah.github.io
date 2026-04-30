@@ -232,7 +232,7 @@ header {
 .pricing { padding: 2.5rem 2rem; background: var(--price-bg); }
 .pricing h2 { text-align: center; font-size: 2.5rem; color: #111; margin-bottom: 2rem; }
 .pricing-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
-.price-card { background: white; border-radius: 35px; padding: 2rem 1.5rem; flex: 1 1 220px; max-width: 280px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); text-align: center; border-top: 8px solid #ff1493; transition: transform 0.3s; }
+.price-card { background: white; border-radius: 35px; padding: 2rem 1.5rem; flex: 1 1 220px; max-width: 280px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); text-align: center; border-bottom: 8px solid  var(--poster-purple); transition: transform 0.3s; }
 .price-card:hover { transform: translateY(-5px); }
 .price-card h3 { font-size: 1.7rem; color: var(--black); }
 .price { font-size: 2.5rem; font-weight: 800; margin: 0.8rem 0; color: #111; }
