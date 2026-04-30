@@ -66,7 +66,7 @@ header {
     text-transform: uppercase;
     color: var(--black);
 }
-.logo-hannah { color: var(--white); }
+.logo-hannah { color: var(--black); }
 
 /* Desktop Navigation */
 .nav-links {
@@ -590,9 +590,6 @@ header {
     text-transform: uppercase; 
 }
 
-.logo-hannah { 
-    color: var(--white); 
-}
 
 .logo-pets { 
     color: var(--poster-orange); /* Applies the new orange color */
