@@ -1,105 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{{ page.title }} - {{ site.title }}</title>
-
-  <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap"
-    rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap"
-    rel="stylesheet" />
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "primary": "#a8216e", // Your brand pink [cite: 25]
-            "secondary": "#006666", // Your brand teal [cite: 22]
-            "surface": "#ffffff",
-            "on-surface": "#0e0e0e", // High contrast black [cite: 30]
-            "surface-variant": "#f3f0ef" // Light stone [cite: 22]
-          },
-          fontFamily: {
-            "headline": ["Plus Jakarta Sans", "sans-serif"],
-            "body": ["Plus Jakarta Sans", "sans-serif"]
-          }
-        }
-      }
-    }
-  </script>
-
-  <style>
-    .glass-nav {
-      background-color: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .text-huge {
-      font-size: clamp(3rem, 10vw, 8rem);
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-    }
-
-    .event-arrow {
-      clip-path: polygon(0% 0%, 85% 0%, 100% 50%, 85% 100%, 0% 100%);
-    }
-  </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ page.title | default: "Hannah's Pampered Pets" }}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+        {% seo %}
+        {% include head-custom.html %}
 
 
-  <style>
-    :root {
-      /* Define your "easy-change" variables here */
-      --bg-color: #006666;
-      /* Your brand teal [cite: 23] */
-      --text-color: #ffffff;
-      /* High contrast white for teal bg */
-      --brand-pink: #a8216e;
-      /* Your primary pink [cite: 25] */
-      --brand-teal: #006666;
-      /* Your secondary teal [cite: 23] */
-    }
+    </head>
+    <body>
 
-    .glass-nav {
-      background-color: rgba(0, 102, 102, 0.8);
-      /* Matches teal bg */
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-  </style>
+        <div class="site-wrapper">
+            {% include header.html %}
+            
+            {{ content }}
+            
+            {% include footer.html %}
+        </div> <button id="backToTop" class="back-to-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            "surface": "var(--bg-color)",
-            /* Maps to your teal variable */
-            "on-surface": "var(--text-color)",
-            "primary": "var(--brand-pink)",
-            "secondary": "var(--brand-teal)"
-          },
-          fontFamily: {
-            "headline": ["Plus Jakarta Sans", "sans-serif"],
-            [cite: 31]
-            "body": ["Plus Jakarta Sans", "sans-serif"][cite: 31]
-          }
-        }
-      }
-    }
-  </script>
+        <button id="backToTop" class="back-to-top" aria-label="Back to top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
 
+        <div class="modal fade" id="yesModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="h4 modal-title" >Thank You! 🐾</h3>
+                <button type="button" class="close-modal btn" style="padding: 5px 15px; border-radius:5px;">&times;</button>
+            </div>
+            <div class="modal-body">We're glad you found what you needed. Hope to talk to you soon!</div>
+            </div>
+        </div>
+        </div>
 
-</head>
+        <div class="modal fade" id="noModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="h4 modal-title" >Let Us Help! 🐶</h3>
+                <button type="button" class="close-modal btn" style="padding: 5px 15px; border-radius:5px;">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Sorry you didn't find what you were looking for. Would you like to reach out directly?</p>
+                <div class="social-icons">
+                    <a href="tel:916-318-0479" aria-label="Call Hannah">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                    
+                    <a href="mailto:hpamperedpets@gmail.com" aria-label="Email Hannah">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    
+                    <a href="https://www.facebook.com/HannahsPamperedPets" target="_blank" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    
+                    <a href="https://www.instagram.com/hannahs_pampered_pets/" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
 
-<body class="bg-surface font-body text-on-surface antialiased">
-  {% include header.html %}
-  <main>{{ content }}</main>
-  {% include footer.html %}
-</body>
+        <div class="modal fade" id="coupon1Modal" role="dialog" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="h4 modal-title" >First Visit Discount! 🎉</h3>
+            <button type="button" class="close-modal btn" style="padding: 5px 15px; border-radius:5px;">&times;</button>
+          </div>
+          <div class="modal-body">
+              <p style="font-size: 1.2rem; margin-bottom: 15px;">Mention this code when booking your first appointment with me!</p>
+              
+              <div style="background: var(--price-bg); padding: 15px; border-radius: 10px; font-size: 1.8rem; font-weight: 800; letter-spacing: 2px; color: var(--neon-pink); border: 3px dashed var(--neon-pink); margin-bottom: 20px;">
+                  NEWPUP30
+              </div>
+              
+              <a href="https://mycustombooking.com" target="_blank" class="btn">Book Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
+    <div class="modal fade" id="coupon2Modal" role="dialog" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="h4 modal-title" >Refer a Friend! 🎁</h3>
+            <button type="button" class="close-modal btn" style="padding: 5px 15px; border-radius:5px;">&times;</button>
+          </div>
+          <div class="modal-body">
+              <p style="font-size: 1.1rem; margin-bottom: 20px;">Share the love! Tell your friends to mention your name when booking. They get $5 off plus their first visit coupon while you get a $5 off for life (can be stacked 3 times)</p>
+              
+              <button class="btn" onclick="navigator.clipboard.writeText('Check out Hannah\'s Pampered Pets! They take amazing care of my furry friend. Book here: https://mycustombooking.com'); alert('Share message copied to clipboard!');">
+                  <i class="fas fa-copy"></i> Copy Share Message
+              </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <script>
+            // --- MOBILE NAV LOGIC ---
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+            hamburger.addEventListener('click', () => navLinks.classList.toggle('modal-open'));
+            document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('modal-open')));
+
+            // --- ACCESSIBLE TABS LOGIC (From your snippet) ---
+            window.addEventListener("load", () => {
+                document.querySelectorAll(".tabs").forEach(e => {
+                    const t = e.querySelector("ul");
+                    if (!t) return;
+                    const n = t.querySelectorAll("a"),
+                        i = e.querySelectorAll('[id^="section"]'),
+                        s = (e, t) => {
+                            t.focus();
+                            t.removeAttribute("tabindex");
+                            t.setAttribute("aria-selected", "true");
+                            e.removeAttribute("aria-selected");
+                            e.setAttribute("tabindex", "-1");
+                            const s = Array.prototype.indexOf.call(n, t),
+                                    o = Array.prototype.indexOf.call(n, e);
+                            i[o].hidden = !0;
+                            i[s].hidden = !1;
+                        };
+                    t.setAttribute("role", "tablist");
+                    n.forEach((e, o) => {
+                        e.setAttribute("role", "tab");
+                        e.setAttribute("tabindex", "-1");
+                        e.parentNode.setAttribute("role", "presentation");
+                        e.addEventListener("click", ev => {
+                            ev.preventDefault();
+                            const activeTab = t.querySelector("[aria-selected]");
+                            activeTab && ev.currentTarget !== activeTab && s(activeTab, ev.currentTarget);
+                        });
+                        e.addEventListener("keydown", ev => {
+                            const idx = Array.prototype.indexOf.call(n, ev.currentTarget),
+                                r = ["ArrowLeft", "Left"].includes(ev.key) ? idx - 1 : ["ArrowRight", "Right"].includes(ev.key) ? idx + 1 : ["ArrowDown", "Down"].includes(ev.key) ? "down" : null;
+                            if (null !== r) {
+                                ev.preventDefault();
+                                "down" === r ? i[o].focus() : n[r] && s(ev.currentTarget, n[r]);
+                            }
+                        });
+                    });
+                    i.forEach((e, t) => {
+                        e.setAttribute("role", "tabpanel");
+                        e.setAttribute("tabindex", "-1");
+                        e.setAttribute("aria-label", n[t].innerText);
+                        e.hidden = !0;
+                    });
+                    n[0].removeAttribute("tabindex");
+                    n[0].setAttribute("aria-selected", "true");
+                    i[0].hidden = !1;
+                });
+            });
+
+            // --- NEW MODAL LOGIC ---
+            function openModal(modalId) {
+                const m = document.getElementById(modalId);
+                m.style.display = 'block';
+                setTimeout(() => m.classList.add('show'), 10); // Slight delay for fade transition
+            }
+
+            function closeModal() {
+                document.querySelectorAll('.modal').forEach(m => {
+                    m.classList.remove('show');
+                    setTimeout(() => m.style.display = 'none', 300); // Wait for fade out
+                });
+            }
+
+            const yesBtn = document.getElementById('yesFeedback');
+            const noBtn = document.getElementById('noFeedback');
+            if(yesBtn) yesBtn.addEventListener('click', () => openModal('yesModal'));
+            if(noBtn) noBtn.addEventListener('click', () => openModal('noModal'));
+            
+            document.querySelectorAll('.close-modal').forEach(btn => btn.addEventListener('click', closeModal));
+            window.addEventListener('click', (e) => { if (e.target.classList.contains('modal')) closeModal(); });
+        </script>
+    </body>
 </html>

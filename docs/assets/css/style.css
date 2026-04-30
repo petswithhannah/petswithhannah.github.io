@@ -1,0 +1,563 @@
+/* ---------- VARIABLES & RESET ---------- */
+:root {
+    --neon-pink: #FF10F0;
+    --light-pink: #FFD1DC; /* Body background */
+    --teal: #c2f4f5;       /* Accent color */
+    --black: #111111;
+    --white: #FFFFFF;
+    --price-bg: #fbeff4;   /* Pricing section bg */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light-pink);
+    color: var(--black);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents side scroll during modal open */
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Desktop 80% Centered Wrapper */
+.site-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    background-color: var(--white);
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+@media (min-width: 769px) {
+    .site-wrapper { width: 80%; max-width: 1400px; }
+}
+
+/* ---------- HEADER LAYOUT (The main change) ---------- */
+header {
+    background-color: var(--neon-pink);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between; /* Pushes content to far left and far right */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 70px;
+}
+
+/* Container for Brand and Nav (Center/Right) */
+.header-right-side {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.logo h1 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--black);
+}
+.logo-hannah { color: var(--white); }
+
+/* Desktop Navigation */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    font-weight: bold;
+    color: var(--black);
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--white); }
+
+
+
+/* Hamburger Icon */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--black);
+    z-index: 2001; /* Must be above the modal */
+    transition: color 0.3s;
+}
+
+/* ---------- MOBILE MENU MODAL ---------- */
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    /* Turn desktop nav into full-screen modal */
+    .nav-links {
+        display: none; /* Hidden by default */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 16, 240, 0.95); /* Neon pink with slight transparency */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 2000; /* Just below hamburger, above everything else */
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    /* Class added by JS to open modal */
+    .nav-links.modal-open {
+        display: flex;
+        opacity: 1;
+    }
+
+    .nav-links a {
+        font-size: 2rem;
+        color: var(--white);
+    }
+
+    /* Change hamburger color to white when modal is open */
+    .nav-links.modal-open ~ .hamburger {
+        color: var(--white);
+    }
+}
+
+/* ---------- NEW: VIDEO HERO BANNER ---------- */
+.video-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+}
+
+/* The Background Video */
+.bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    transform: translate(-50%, -50%);
+    object-fit: cover; /* Ensures video covers area without stretching */
+}
+
+/* Dark overlay to make text readable over video */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -1;
+}
+
+.video-content {
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.video-content h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.video-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 25px;
+}
+
+@media (max-width: 768px) {
+    .video-hero { height: 50vh; }
+    .video-content h2 { font-size: 2rem; }
+}
+
+/* ---------- STANDARD IMAGE HERO ---------- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5% 5%;
+    background-color: #f4f4f9;
+}
+.hero-content { flex: 1; padding-right: 20px; }
+.hero-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero-image { flex: 1; display: flex; justify-content: center; }
+.hero-image img { max-width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+@media (max-width: 768px) {
+    .hero { flex-direction: column-reverse; text-align: center; }
+    .hero-content { padding-right: 0; margin-top: 30px; }
+    .hero-content h2 { font-size: 2rem; }
+}
+
+/* ---------- PHILOSOPHY ---------- */
+.philosophy { padding: 60px 5%; text-align: center; background: var(--white); }
+blockquote { font-size: 1.5rem; font-style: italic; color: var(--teal); max-width: 800px; margin: 0 auto; position: relative; padding: 0 30px; }
+blockquote::before, blockquote::after { content: '"'; font-size: 4rem; color: var(--neon-pink); position: absolute; opacity: 0.3; }
+blockquote::before { top: -20px; left: 0; }
+blockquote::after { bottom: -40px; right: 0; }
+
+@media (max-width: 768px) { blockquote { font-size: 1.2rem; } }
+
+/* ---------- TESTIMONIES CAROUSEL ---------- */
+.testimonies-section { padding: 60px 5%; background-color: #f4f4f9; }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+.carousel-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
+.testimony-card { min-width: 280px; background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); scroll-snap-align: start; }
+.stars { color: #FFD700; margin-bottom: 10px; }
+.client-name { font-weight: bold; color: var(--teal); margin-top: 10px; }
+
+/* ---------- PRICING SECTION (Your Styles) ---------- */    
+.pricing { padding: 2.5rem 2rem; background: var(--price-bg); }
+.pricing h2 { text-align: center; font-size: 2.5rem; color: #111; margin-bottom: 2rem; }
+.pricing-grid { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; }
+.price-card { background: white; border-radius: 35px; padding: 2rem 1.5rem; flex: 1 1 220px; max-width: 280px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); text-align: center; border-top: 8px solid #ff1493; transition: transform 0.3s; }
+.price-card:hover { transform: translateY(-5px); }
+.price-card h3 { font-size: 1.7rem; color: var(--black); }
+.price { font-size: 2.5rem; font-weight: 800; margin: 0.8rem 0; color: #111; }
+
+/* ---------- COUPON BUTTONS (Your Styles) ---------- */    
+.coupon-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem; background: var(--white); }
+.coupon-btn { background: #ffecaa; border: 2px solid #111; color: black; font-weight: 800; font-size: 1.3rem; padding: 1rem 2rem; border-radius: 50px; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; box-shadow: 0 5px 0 #0e6b63; transition: 0.15s; }
+.coupon-btn i { font-size: 1.5rem; }
+.coupon-btn:hover { background: var(--neon-pink); color: white; transform: scale(1.02); box-shadow: 0 2px 0 #0e6b63; }
+
+/* ---------- FEEDBACK BANNER (Pink) ---------- */
+.feedback-banner { background-color: var(--neon-pink); padding: 1.5rem 5%; display: flex; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.feedback { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center;}
+.feedback span { font-weight: 600; font-size: 1.1rem; color: var(--black); }
+.feedback button { border: 2px solid var(--black); padding: 8px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
+.feedback button:hover { transform: scale(1.05); }
+.yes-btn { background: var(--teal) !important; color: var(--black) !important; }
+.no-btn { background: var(--black) !important; color: var(--white) !important; }
+
+/* ---------- FOOTER (Dark) ---------- */    
+.footer { background: var(--black); color: #ddd; padding: 2rem 5%; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1.5rem; text-align: center; }
+.social-icons { display: flex; gap: 15px; justify-content: center; }
+.social-icons a { color: #ff1493; font-size: 1.8rem; transition: 0.2s; }
+.social-icons a:hover { color: var(--teal); transform: scale(1.1); }
+
+@media (max-width: 768px) {
+    .footer { flex-direction: column-reverse; padding: 2rem 20px; }
+}
+
+/* ---------- BACK TO TOP  ---------- */
+.back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: var(--teal); color: var(--white); border: 2px solid var(--white); width: 45px; height: 45px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 100; transition: all 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.2); }
+.back-to-top:hover { background-color: var(--black); }
+
+.comparison { padding: 60px 5%; background: var(--white); text-align:center;} .comp-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;} .comp-item img { max-width: 100%; border-radius: 15px; width: 300px; height: 300px; object-fit: cover; border: 4px solid var(--price-bg); } .comp-item h4 { margin-top: 10px; color: var(--teal); }
+
+
+/* ---------- HEADER & ACTIONS ---------- */
+header {
+    background-color: var(--neon-pink);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Spaces out the button and the hamburger */
+}
+
+/* ---------- BUTTONS (FIXED FOR READABILITY) ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--teal);
+    color: var(--black); /* Changed to black for contrast */
+    border: 2px solid var(--black); /* Added black border */
+    border-radius: 50px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+    box-shadow: 0 4px 0 var(--black); /* Changed shadow to black */
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: var(--white);
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+    transform: scale(1.05);
+    box-shadow: 0 2px 0 var(--teal);
+}
+
+/* Header Specific Book Button */
+.book-btn-header {
+    background-color: var(--teal);
+    color: var(--black); /* Changed to black for contrast */
+    border: 2px solid var(--black); /* Changed to black */
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    box-shadow: 0 3px 0 var(--black); /* Changed shadow to black */
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.book-btn-header:hover {
+    background-color: var(--white);
+    color: var(--neon-pink);
+    border-color: var(--teal);
+    box-shadow: 0 3px 0 var(--teal);
+    transform: scale(1.05);
+}
+
+
+/* Added Video Hero styling fixes */
+.video-hero { position: relative; height: 60vh; overflow: hidden; display: flex; align-items: center; justify-content: center; color: white; text-align: center; }
+.bg-video { position: absolute; top: 50%; left: 50%; min-width: 100%; min-height: 100%; transform: translate(-50%, -50%); object-fit: cover; z-index: -2; }
+.video-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.45); z-index: -1; }
+
+
+/* ---------- PHILOSOPHY ---------- */
+.philosophy { 
+    padding: 80px 5%; 
+    text-align: center; 
+    background: var(--white); 
+}
+
+.philosophy blockquote { 
+    font-size: 1.8rem; 
+    font-style: italic; 
+    color: var(--black); 
+    max-width: 800px; 
+    margin: 0 auto; 
+    position: relative; 
+    padding: 20px 40px;
+    line-height: 1.6;
+}
+
+/* Add Georgia font specifically for nicer curly quotes */
+.philosophy blockquote::before, 
+.philosophy blockquote::after { 
+    content: '"'; 
+    font-size: 6rem; 
+    color: var(--neon-pink); 
+    position: absolute; 
+    opacity: 0.15; 
+    line-height: 1;
+    font-family: Georgia, serif; 
+}
+
+.philosophy blockquote::before { 
+    top: -10px; 
+    left: -20px; 
+}
+
+.philosophy blockquote::after { 
+    bottom: -40px; 
+    right: -20px; 
+}
+
+@media (max-width: 768px) { 
+    .philosophy blockquote { 
+        font-size: 1.3rem; 
+        padding: 20px; 
+    } 
+    .philosophy blockquote::before { left: 0; top: -15px; }
+    .philosophy blockquote::after { right: 0; bottom: -30px; }
+}
+
+
+/* ---------- POSTER CONTENT STYLING ---------- */
+.service-list { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; background: #fef1f8; }
+.service-item { display: flex; gap: 15px; align-items: flex-start; }
+.service-item i { color: var(--teal); font-size: 1.5rem; margin-top: 5px; }
+.service-item h4 { font-size: 1.2rem; color: var(--black); }
+
+.requirements { padding: 50px 5%; background: var(--white); }
+.req-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+.req-card { padding: 20px; border: 1px solid #eee; border-radius: 15px; }
+.req-card h4 { color: var(--black); margin-bottom: 10px; }
+
+
+
+
+/* ---------- WHAT I OFFER (CARD GRID BUTTONS) ---------- */
+.what-i-offer-section {
+    padding: 60px 5%;
+    background: #fef1f8; /* Soft pink background */
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 0 var(--black);
+    cursor: pointer;
+}
+
+/* Hover Effect - Turns Teal and pops down */
+.service-card:hover {
+    transform: translateY(4px);
+    background: var(--teal);
+    box-shadow: 0 2px 0 var(--black);
+}
+
+.service-card i {
+    font-size: 2.5rem;
+    color: var(--neon-pink);
+    margin-bottom: 15px;
+    transition: color 0.2s ease;
+}
+
+.service-card h4 {
+    font-size: 1.3rem;
+    color: var(--black);
+    margin-bottom: 10px;
+    font-weight: 800;
+    transition: color 0.2s ease;
+}
+
+.service-card p {
+    font-size: 0.95rem;
+    color: #444;
+    transition: color 0.2s ease;
+}
+
+/* Changes text/icon to white when hovered over the teal background */
+.service-card:hover i,
+.service-card:hover h4,
+.service-card:hover p {
+    color: var(--black);
+}
+
+/* ---------- TESTIMONIAL BUTTON ---------- */
+.testimonial-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--neon-pink);
+    color: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 0 var(--black);
+    text-decoration: none;
+}
+
+.testimonial-btn:hover {
+    background-color: var(--white);
+    color: var(--neon-pink);
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--black);
+}
+
+
+/* ---------- ACCESSIBLE TABS ---------- */
+.tabs { max-width: 1000px; margin: 0 auto; }
+.tabs ul { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; margin-bottom: 40px; list-style: none; padding: 0; }
+.tabs ul li a { 
+    display: inline-flex; 
+    align-items: center; gap: 8px;
+    background: var(--white); 
+    border: 2px solid var(--neon-pink); 
+    color: var(--neon-pink);
+    padding: 12px 30px; 
+    border-radius: 50px; 
+    font-weight: 800; 
+    font-size: 1.1rem;
+    cursor: pointer; 
+    transition: all 0.3s ease; 
+    text-decoration: none;
+}
+.tabs ul li a:hover { background: #e0f2f1; transform: translateY(-2px); }
+.tabs ul li a[aria-selected="true"] { 
+    background: var(--black); 
+    color: var(--white); 
+    box-shadow: 0 2px 4px rgba(32, 178, 170, 0.3); 
+}
+[role="tabpanel"] { animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- BOOTSTRAP-STYLE MODALS ---------- */
+.modal {
+  --bs-modal-zindex: 3000;
+  --bs-modal-width: 500px;
+  --bs-modal-padding: 1.5rem;
+  --bs-modal-margin: 0.5rem;
+  --bs-modal-bg: var(--white);
+  --bs-modal-border-color: rgba(0,0,0,0.2);
+  --bs-modal-border-radius: 20px;
+  --bs-modal-header-padding: 1.5rem;
+  --bs-backdrop-bg: rgba(0,0,0,0.6);
+  
+  position: fixed; top: 0; left: 0;
+  z-index: var(--bs-modal-zindex);
+  display: none; width: 100%; height: 100%;
+  overflow-x: hidden; overflow-y: auto; outline: 0;
+  background-color: var(--bs-backdrop-bg);
+}
+.modal-dialog {
+  position: relative; width: auto;
+  margin: var(--bs-modal-margin);
+  pointer-events: none;
+}
+.modal.fade .modal-dialog {
+  transform: translate(0, -50px);
+  transition: transform 0.3s ease-out;
+}
+.modal.show .modal-dialog { transform: none; }
+.modal-content {
+  position: relative; display: flex; flex-direction: column; width: 100%;
+  pointer-events: auto; background-color: var(--bs-modal-bg);
+  border-radius: var(--bs-modal-border-radius);
+  border-top: 10px solid var(--neon-pink);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.modal-header {
+  display: flex; flex-shrink: 0; align-items: center; justify-content: space-between;
+  padding: var(--bs-modal-header-padding);
+  border-bottom: 1px solid #eee;
+}
+.modal-title { margin-bottom: 0; font-size: 1.8rem; font-weight: 800; color:black;}
+.modal-body { position: relative; flex: 1 1 auto; padding: var(--bs-modal-padding); text-align: center; font-size: 1.1rem; }
+
+@media (min-width: 576px) {
+  .modal-dialog { max-width: var(--bs-modal-width); margin: 3rem auto; }
+}
