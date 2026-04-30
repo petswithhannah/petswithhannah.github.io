@@ -220,6 +220,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0% 0% 0% 5%;
+    margin-bottom: 2em;
 }
 .hero-content { flex: 1; }
 .hero-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--poster-orange)}
@@ -400,7 +401,7 @@ header {
 .philosophy blockquote::before, 
 .philosophy blockquote::after { 
     content: '"'; 
-    font-size: 6rem; 
+    font-size: 3rem; 
     color: var(--poster-orange); 
     position: absolute; 
     opacity: 0.5; 
@@ -615,21 +616,6 @@ header {
     color: var(--poster-orange); /* Applies the new orange color */
 }
 
-.nav-links { 
-    display: flex; 
-    gap: 20px; 
-}
-
-.nav-links a { 
-    font-weight: 800; 
-    color: var(--black); 
-    font-size: 1.25rem; /* Matched with logo */
-    transition: 0.3s; 
-}
-
-.nav-links a:hover { 
-    color: var(--white); 
-}
 
 .footer-section {
     font-size: 1em;
