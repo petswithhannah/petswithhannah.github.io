@@ -11,13 +11,28 @@
     --black: #111111;
     --white: #FFFFFF;
     --price-bg: #fbeff4;   /* Pricing section bg */
+
+    --accent-font: 'Dancing Script', cursive;
+    --body-font: 'Quicksand', sans-serif;
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    /* font-family: var(--body-font); */
+    /* font-family: var(--accent-font); */
+}
+
+h1, h2, h3, .logo-hannah, .logo-pets, .philosophy blockquote {
+    /* font-family: var(--accent-font);
+    text-transform: none; */
+} 
+
+.logo-hannah, .logo-pets {
+    /* font-family: var(--accent-font);
+    text-transform: none;  */
 }
 
 body {
@@ -204,13 +219,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 5% 5%;
-    background-color: #f4f4f9;
+    padding: 0% 0% 0% 5%;
 }
-.hero-content { flex: 1; padding-right: 20px; }
+.hero-content { flex: 1; }
 .hero-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--poster-orange)}
 .hero-image { flex: 1; display: flex; justify-content: center; }
-.hero-image img { max-width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.hero-image img { max-width: 100%; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
 @media (max-width: 768px) {
     .hero { flex-direction: column-reverse; text-align: center; }
@@ -373,6 +387,7 @@ header {
 .philosophy blockquote { 
     font-size: 1.8rem; 
     font-style: italic; 
+    font-weight:bold;
     color: var(--poster-orange); 
     max-width: 800px; 
     margin: 0 auto; 
@@ -386,9 +401,9 @@ header {
 .philosophy blockquote::after { 
     content: '"'; 
     font-size: 6rem; 
-    color: var(--poster-purple); 
+    color: var(--poster-orange); 
     position: absolute; 
-    opacity: 0.15; 
+    opacity: 0.5; 
     line-height: 1;
     font-family: Georgia, serif; 
 }
@@ -496,7 +511,7 @@ header {
     display: inline-block;
     padding: 12px 24px;
     background-color: var(--poster-purple);
-    color: var(--white);
+    color: var(--black);
     border: 2px solid var(--black);
     border-radius: 50px;
     font-weight: 800;
