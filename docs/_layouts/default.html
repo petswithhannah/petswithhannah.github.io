@@ -25,19 +25,7 @@
             <i class="fas fa-chevron-up"></i>
         </button>
 
-        <div class="modal fade" id="yesModal" role="dialog" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="h4 modal-title" >Thank You! 🐾</h3>
-                <button type="button" class="close-modal btn" style="padding: 5px 15px; border-radius:5px;">&times;</button>
-            </div>
-            <div class="modal-body">We're glad you found what you needed. Hope to talk to you soon!</div>
-            </div>
-        </div>
-        </div>
-
-        <div class="modal fade" id="noModal" role="dialog" tabindex="-1">
+        <div class="modal fade" id="bookingModal" role="dialog" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
             <div class="modal-header">
@@ -174,10 +162,8 @@
                 });
             }
 
-            const yesBtn = document.getElementById('yesFeedback');
-            const noBtn = document.getElementById('noFeedback');
-            if(yesBtn) yesBtn.addEventListener('click', () => openModal('yesModal'));
-            if(noBtn) noBtn.addEventListener('click', () => openModal('noModal'));
+            const bookNowBtn = document.getElementById('bookButtonModal');
+            if(bookNowBtn) bookNowBtn.addEventListener('click', () => openModal('bookingModal'));
             
             document.querySelectorAll('.close-modal').forEach(btn => btn.addEventListener('click', closeModal));
             window.addEventListener('click', (e) => { if (e.target.classList.contains('modal')) closeModal(); });
