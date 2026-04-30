@@ -3,6 +3,8 @@
     --archived-neon-pink: #FF10F0;
     --poster-purple: #c5b1ef;
     --poster-orange: #c17d23;
+    --soft-pink: #fef1f8; 
+
     
     --archived-light-pink: #FFD1DC; /* Body background */
     --teal: #c2f4f5;       /* Accent color */
@@ -219,7 +221,7 @@ header {
 @media (max-width: 768px) { blockquote { font-size: 1.2rem; } }
 
 /* ---------- TESTIMONIES CAROUSEL ---------- */
-.testimonies-section { padding: 60px 5%; background-color: #f4f4f9; }
+.testimonies-section { padding: 60px 5%; background: var(--soft-pink);  }
 .section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--poster-orange);}
 .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
 .testimony-card { min-width: 280px; background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); scroll-snap-align: start; }
@@ -365,7 +367,7 @@ header {
 .philosophy { 
     padding: 80px 5%; 
     text-align: center; 
-    background: var(--white); 
+    background: var(--soft-pink); 
 }
 
 .philosophy blockquote { 
@@ -428,7 +430,10 @@ header {
 /* ---------- WHAT I OFFER (CARD GRID BUTTONS) ---------- */
 .what-i-offer-section {
     padding: 60px 5%;
-    background: #fef1f8; /* Soft pink background */
+}
+
+.services-tabs-section {
+    margin: 1em 0;
 }
 
 .services-grid {
@@ -609,4 +614,8 @@ header {
 
 .nav-links a:hover { 
     color: var(--white); 
+}
+
+.footer-section {
+    font-size: 1em;
 }

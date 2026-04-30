@@ -8,7 +8,7 @@ title: Hannah's Pampered Pets | Grooming, Bathing & Sitting
 {% include poster-services.html %}
 
 {% include testimonies.html %}
-{% include comparison.html %}
+<!-- {% include comparison.html %} -->
 
 {% include pricing.html %}
 
