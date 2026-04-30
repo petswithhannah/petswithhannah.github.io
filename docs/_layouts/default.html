@@ -19,10 +19,8 @@
             {{ content }}
             
             {% include footer.html %}
-        </div> <button id="backToTop" class="back-to-top" aria-label="Back to top">
-            <i class="fas fa-chevron-up"></i>
-        </button>
-
+        </div> 
+        
         <button id="backToTop" class="back-to-top" aria-label="Back to top">
             <i class="fas fa-chevron-up"></i>
         </button>
@@ -84,7 +82,7 @@
                   NEWPUP30
               </div>
               
-              <a href="https://mycustombooking.com" target="_blank" class="btn">Book Now</a>
+              <a href="https://my.groomer.io/3a003074-fbcf-4165-bff7-cbdfcde8d493" target="_blank" class="btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -100,9 +98,7 @@
           <div class="modal-body">
               <p style="font-size: 1.1rem; margin-bottom: 20px;">Share the love! Tell your friends to mention your name when booking. They get $5 off plus their first visit coupon while you get a $5 off for life (can be stacked 3 times)</p>
               
-              <button class="btn" onclick="navigator.clipboard.writeText('Check out Hannah\'s Pampered Pets! They take amazing care of my furry friend. Book here: https://mycustombooking.com'); alert('Share message copied to clipboard!');">
-                  <i class="fas fa-copy"></i> Copy Share Message
-              </button>
+              <a href="https://my.groomer.io/3a003074-fbcf-4165-bff7-cbdfcde8d493" target="_blank" class="btn">Book Now</a>
           </div>
         </div>
       </div>
@@ -185,6 +181,24 @@
             
             document.querySelectorAll('.close-modal').forEach(btn => btn.addEventListener('click', closeModal));
             window.addEventListener('click', (e) => { if (e.target.classList.contains('modal')) closeModal(); });
+
+            // --- BACK TO TOP BUTTON ---
+            const btt = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => { 
+                // Checks how far down the page is scrolled
+                const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+                
+                if (scrollPosition > 300) {
+                    btt.style.display = 'flex';
+                } else {
+                    btt.style.display = 'none';
+                }
+            });
+
+            btt.addEventListener('click', () => { 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            });
         </script>
     </body>
 </html>
