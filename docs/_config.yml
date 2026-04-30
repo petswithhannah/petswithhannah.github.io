@@ -3,3 +3,47 @@ description: Expert Care for Your Best Dog Friend in Vacaville and Sacramento
 show_downloads: false
 google_analytics: G-1JTFJ6JG9M
 theme: jekyll-theme-architect
+
+
+title: "Hannah's Pampered Pets | Professional Grooming & Sitting"
+email: "hpamperedpets@gmail.com" 
+description: >- 
+  Professional pet grooming, pet bathing, and pet sitting services serving the 
+  Vacaville and Sacramento areas. Licensed, bonded, and insured care 
+  for your furry family members.
+baseurl: "" 
+url: "https://hannahspamperedpets.com"
+
+author:
+  name: "Hannah Venezio"
+
+# --- SEO & Social Sharing ---
+# These fields are used by the jekyll-seo-tag plugin
+social:
+  name: "Hannah's Pampered Pets"
+  links:
+    - https://www.facebook.com/hannahspamperedpets
+    - https://www.instagram.com/hannahs_pampered_pets
+  type: PetGroomingService
+
+# --- Build Settings ---
+theme: jekyll-theme-architect
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap 
+  - jekyll-feed
+
+show_downloads: false 
+google_analytics: "G-1JTFJ6JG9M" 
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+markdown: kramdown
+kramdown:
+  input: GFM 
+  syntax_highlighter: rouge

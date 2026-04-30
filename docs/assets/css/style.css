@@ -1,7 +1,10 @@
 /* ---------- VARIABLES & RESET ---------- */
 :root {
-    --neon-pink: #FF10F0;
-    --light-pink: #FFD1DC; /* Body background */
+    --archived-neon-pink: #FF10F0;
+    --poster-purple: #c5b1ef;
+    --poster-orange: #c17d23;
+    
+    --archived-light-pink: #FFD1DC; /* Body background */
     --teal: #c2f4f5;       /* Accent color */
     --black: #111111;
     --white: #FFFFFF;
@@ -16,7 +19,7 @@
 }
 
 body {
-    background-color: var(--light-pink);
+    background-color: var(--poster-orange);
     color: var(--black);
     line-height: 1.6;
     overflow-x: hidden; /* Prevents side scroll during modal open */
@@ -40,7 +43,7 @@ ul { list-style: none; }
 
 /* ---------- HEADER LAYOUT (The main change) ---------- */
 header {
-    background-color: var(--neon-pink);
+    background-color: var(--poster-purple);
     padding: 10px 5%;
     display: flex;
     justify-content: space-between; /* Pushes content to far left and far right */
@@ -203,7 +206,7 @@ header {
     background-color: #f4f4f9;
 }
 .hero-content { flex: 1; padding-right: 20px; }
-.hero-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
+.hero-content h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--poster-orange)}
 .hero-image { flex: 1; display: flex; justify-content: center; }
 .hero-image img { max-width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
 
@@ -213,22 +216,15 @@ header {
     .hero-content h2 { font-size: 2rem; }
 }
 
-/* ---------- PHILOSOPHY ---------- */
-.philosophy { padding: 60px 5%; text-align: center; background: var(--white); }
-blockquote { font-size: 1.5rem; font-style: italic; color: var(--teal); max-width: 800px; margin: 0 auto; position: relative; padding: 0 30px; }
-blockquote::before, blockquote::after { content: '"'; font-size: 4rem; color: var(--neon-pink); position: absolute; opacity: 0.3; }
-blockquote::before { top: -20px; left: 0; }
-blockquote::after { bottom: -40px; right: 0; }
-
 @media (max-width: 768px) { blockquote { font-size: 1.2rem; } }
 
 /* ---------- TESTIMONIES CAROUSEL ---------- */
 .testimonies-section { padding: 60px 5%; background-color: #f4f4f9; }
-.section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; }
+.section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--poster-orange);}
 .carousel-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
 .testimony-card { min-width: 280px; background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); scroll-snap-align: start; }
 .stars { color: #FFD700; margin-bottom: 10px; }
-.client-name { font-weight: bold; color: var(--teal); margin-top: 10px; }
+.client-name { font-weight: bold; color: var(--black); margin-top: 10px; }
 
 /* ---------- PRICING SECTION (Your Styles) ---------- */    
 .pricing { padding: 2.5rem 2rem; background: var(--price-bg); }
@@ -243,10 +239,10 @@ blockquote::after { bottom: -40px; right: 0; }
 .coupon-section { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 3rem 2rem; background: var(--white); }
 .coupon-btn { background: #ffecaa; border: 2px solid #111; color: black; font-weight: 800; font-size: 1.3rem; padding: 1rem 2rem; border-radius: 50px; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; box-shadow: 0 5px 0 #0e6b63; transition: 0.15s; }
 .coupon-btn i { font-size: 1.5rem; }
-.coupon-btn:hover { background: var(--neon-pink); color: white; transform: scale(1.02); box-shadow: 0 2px 0 #0e6b63; }
+.coupon-btn:hover { background: var(--poster-purple); color: white; transform: scale(1.02); box-shadow: 0 2px 0 #0e6b63; }
 
 /* ---------- FEEDBACK BANNER (Pink) ---------- */
-.feedback-banner { background-color: var(--neon-pink); padding: 1.5rem 5%; display: flex; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.1); }
+.feedback-banner { background-color: var(--poster-purple); padding: 1.5rem 5%; display: flex; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.1); margin-top: 1em;}
 .feedback { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center;}
 .feedback span { font-weight: 600; font-size: 1.1rem; color: var(--black); }
 .feedback button { border: 2px solid var(--black); padding: 8px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
@@ -290,12 +286,12 @@ blockquote::after { bottom: -40px; right: 0; }
     transform: translateY(-3px);
 }
 
-.comparison { padding: 60px 5%; background: var(--white); text-align:center;} .comp-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;} .comp-item img { max-width: 100%; border-radius: 15px; width: 300px; height: 300px; object-fit: cover; border: 4px solid var(--price-bg); } .comp-item h4 { margin-top: 10px; color: var(--teal); }
+.comparison { padding: 60px 5%; background: var(--white); text-align:center;} .comp-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;} .comp-item img { max-width: 100%; border-radius: 15px; width: 300px; height: 300px; object-fit: cover; border: 4px solid var(--price-bg); } .comp-item h4 { margin-top: 10px; color: var(--poster-orange); }
 
 
 /* ---------- HEADER & ACTIONS ---------- */
 header {
-    background-color: var(--neon-pink);
+    background-color: var(--poster-purple);
     padding: 15px 5%;
     display: flex;
     justify-content: space-between;
@@ -330,8 +326,8 @@ header {
 
 .btn:hover {
     background-color: var(--white);
-    color: var(--neon-pink);
-    border-color: var(--neon-pink);
+    color: var(--poster-orange);
+    border-color: var(--poster-purple);
     transform: scale(1.05);
     box-shadow: 0 2px 0 var(--teal);
 }
@@ -352,8 +348,8 @@ header {
 
 .book-btn-header:hover {
     background-color: var(--white);
-    color: var(--neon-pink);
-    border-color: var(--teal);
+    color: var(--poster-orange);
+    border-color: var(--poster-orange);
     box-shadow: 0 3px 0 var(--teal);
     transform: scale(1.05);
 }
@@ -375,7 +371,7 @@ header {
 .philosophy blockquote { 
     font-size: 1.8rem; 
     font-style: italic; 
-    color: var(--black); 
+    color: var(--poster-orange); 
     max-width: 800px; 
     margin: 0 auto; 
     position: relative; 
@@ -388,7 +384,7 @@ header {
 .philosophy blockquote::after { 
     content: '"'; 
     font-size: 6rem; 
-    color: var(--neon-pink); 
+    color: var(--poster-purple); 
     position: absolute; 
     opacity: 0.15; 
     line-height: 1;
@@ -463,7 +459,7 @@ header {
 
 .service-card i {
     font-size: 2.5rem;
-    color: var(--neon-pink);
+    color: var(--poster-purple);
     margin-bottom: 15px;
     transition: color 0.2s ease;
 }
@@ -471,6 +467,7 @@ header {
 .service-card h4 {
     font-size: 1.3rem;
     color: var(--black);
+    
     margin-bottom: 10px;
     font-weight: 800;
     transition: color 0.2s ease;
@@ -493,7 +490,7 @@ header {
 .testimonial-btn {
     display: inline-block;
     padding: 12px 24px;
-    background-color: var(--neon-pink);
+    background-color: var(--poster-purple);
     color: var(--white);
     border: 2px solid var(--black);
     border-radius: 50px;
@@ -508,7 +505,7 @@ header {
 
 .testimonial-btn:hover {
     background-color: var(--white);
-    color: var(--neon-pink);
+    color: var(--poster-purple);
     transform: translateY(2px);
     box-shadow: 0 2px 0 var(--black);
 }
@@ -521,8 +518,8 @@ header {
     display: inline-flex; 
     align-items: center; gap: 8px;
     background: var(--white); 
-    border: 2px solid var(--neon-pink); 
-    color: var(--neon-pink);
+    border: 2px solid var(--poster-orange); 
+    color: var(--poster-orange);
     padding: 12px 30px; 
     border-radius: 50px; 
     font-weight: 800; 
@@ -572,7 +569,7 @@ header {
   position: relative; display: flex; flex-direction: column; width: 100%;
   pointer-events: auto; background-color: var(--bs-modal-bg);
   border-radius: var(--bs-modal-border-radius);
-  border-top: 10px solid var(--neon-pink);
+  border-top: 10px solid var(--poster-purple);
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 .modal-header {
@@ -585,4 +582,34 @@ header {
 
 @media (min-width: 576px) {
   .modal-dialog { max-width: var(--bs-modal-width); margin: 3rem auto; }
+}
+
+/* ---------- HEADER BRAND & NAV LOGIC ---------- */
+.logo h1 { 
+    font-size: 1.25rem; /* Matched with nav links */
+    text-transform: uppercase; 
+}
+
+.logo-hannah { 
+    color: var(--white); 
+}
+
+.logo-pets { 
+    color: var(--poster-orange); /* Applies the new orange color */
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 20px; 
+}
+
+.nav-links a { 
+    font-weight: 800; 
+    color: var(--black); 
+    font-size: 1.25rem; /* Matched with logo */
+    transition: 0.3s; 
+}
+
+.nav-links a:hover { 
+    color: var(--white); 
 }

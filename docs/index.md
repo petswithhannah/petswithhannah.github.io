@@ -12,4 +12,4 @@ title: Hannah's Pampered Pets | Grooming, Bathing & Sitting
 
 {% include pricing.html %}
 
-{% include coupons.html %}
+<!-- {% include coupons.html %} -->
