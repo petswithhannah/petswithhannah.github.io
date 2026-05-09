@@ -4,18 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{ page.title | default: "Hannah's Pampered Pets" }}</title>
-        <meta property="og:type" content="website">
-        <meta property="og:url" content="https://hannahspamperedpets.com/"> <meta property="og:title" content="Hannah's Pampered Pets | Grooming & Sitting">
-        <meta property="og:description" content="Loving care for your pets while you’re away. Professional grooming and sitting services.">
         
-        <meta property="og:image" content="{{ '/assets/images/dog8.jpg' | absolute_url }}">
-        <meta property="og:image:width" content="1200">
-        <meta property="og:image:height" content="630">
 
-    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
         {% seo %}
+        <meta property="og:image" content="{{ '/assets/images/dog8.jpg' | absolute_url }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        
         {% include google-analytics.html %}
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
 
