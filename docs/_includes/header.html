@@ -9,9 +9,10 @@
         </div>
         
         <ul class="nav-links" id="nav-links">
-            <li><a href="#about" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'}); return false;">About</a></li>
-            <li><a href="#testimonies" onclick="document.getElementById('testimonies').scrollIntoView({behavior: 'smooth'}); return false;">Reviews</a></li>
-            <li><a href="#pricing" onclick="document.getElementById('pricing').scrollIntoView({behavior: 'smooth'}); return false;">Rates</a></li>
+            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+            <li><a href="{{ '/about/' | relative_url }}">About</a></li>
+            <li><a href="{{ '/' | relative_url }}#testimonies">Reviews</a></li>
+            <li><a href="{{ '/pricing/' | relative_url }}">Rates</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">

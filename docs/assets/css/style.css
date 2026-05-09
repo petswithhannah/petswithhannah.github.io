@@ -236,9 +236,8 @@ header {
 @media (max-width: 768px) { blockquote { font-size: 1.2rem; } }
 
 /* ---------- TESTIMONIES CAROUSEL ---------- */
-.testimonies-section { padding: 60px 5%; background: var(--soft-pink);  }
+.testimonies-section { padding: 2em 5%; background: var(--soft-pink);  }
 .section-title { text-align: center; margin-bottom: 40px; font-size: 2.2rem; color: var(--poster-orange);}
-.carousel-container { display: flex; overflow-x: auto; gap: 20px; padding-bottom: 20px; scroll-snap-type: x mandatory; }
 .testimony-card { min-width: 280px; background: var(--white); padding: 25px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); scroll-snap-align: start; }
 .stars { color: #FFD700; margin-bottom: 10px; }
 .client-name { font-weight: bold; color: var(--black); margin-top: 10px; }
@@ -259,7 +258,7 @@ header {
 .coupon-btn:hover { background: var(--poster-purple); color: white; transform: scale(1.02); box-shadow: 0 2px 0 #0e6b63; }
 
 /* ---------- FEEDBACK BANNER (Pink) ---------- */
-.feedback-banner { background-color: var(--poster-purple); padding: 1.5rem 5%; display: flex; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.1); margin-top: 1em;}
+.feedback-banner { background-color: var(--poster-purple); padding: 1.5rem 5%; display: flex; justify-content: center; border-bottom: 1px solid rgba(0,0,0,0.1);}
 .feedback { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; justify-content: center;}
 .feedback span { font-weight: 600; font-size: 1.1rem; color: var(--black); }
 .feedback button { border: 2px solid var(--black); padding: 8px 20px; border-radius: 25px; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
@@ -303,7 +302,7 @@ header {
     transform: translateY(-3px);
 }
 
-.comparison { padding: 60px 5%; background: var(--white); text-align:center;} .comp-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;} .comp-item img { max-width: 100%; border-radius: 15px; width: 300px; height: 300px; object-fit: cover; border: 4px solid var(--price-bg); } .comp-item h4 { margin-top: 10px; color: var(--poster-orange); }
+.comparison { padding: 2em 5%; background: var(--white); text-align:center;} .comp-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 30px;} .comp-item img { max-width: 100%; border-radius: 15px; width: 300px; height: 300px; object-fit: cover; border: 4px solid var(--price-bg); } .comp-item h4 { margin-top: 10px; color: var(--poster-orange); }
 
 
 /* ---------- HEADER & ACTIONS ---------- */
@@ -445,20 +444,20 @@ header {
 
 /* ---------- WHAT I OFFER (CARD GRID BUTTONS) ---------- */
 .what-i-offer-section {
-    padding: 60px 5%;
+    padding: 2em 5%;
 }
 
 .services-tabs-section {
     margin: 1em 0;
 }
 
-.services-grid {
+/* .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
-}
+} */
 
 .service-card {
     background: var(--white);
@@ -639,4 +638,150 @@ header {
     transform: translateY(-3px);
     background-color: var(--teal);
     box-shadow: 0 4px 0 var(--black);
+}
+
+/* Forces the 5-item grid into 2 rows */
+.services-grid {
+    display: grid !important;
+    /* This tells it: create 3 columns, and wrap if they don't fit */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+/* On mobile, they should probably stack into 1 column */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Optional: To center the bottom 2 items on the second row */
+.services-grid > :nth-child(4) {
+    grid-column: 1 / 2; /* Adjusting position if desired */
+}
+
+.carousel-container {
+    display: grid !important;
+    /* Creates as many columns as fit, at least 250px wide */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+    gap: 20px;
+    padding: 20px 0;
+    /* Disables horizontal scrolling if it was previously enabled */
+    overflow-x: hidden !important; 
+    white-space: normal !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 10px;
+    }
+}
+
+
+/* --- Photo 2-Row Scrolling Grid --- */
+.photo-grid-scroll {
+    display: grid;
+    /* Strictly 2 rows */
+    grid-template-rows: repeat(2, 280px); 
+    /* Force new items to fill columns to the right */
+    grid-auto-flow: column;
+    grid-auto-columns: 250px; 
+    gap: 15px;
+    overflow-x: auto;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.photo-grid-scroll .testimony-card {
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+
+/* Hide scrollbar for a cleaner look (optional) */
+.photo-grid-scroll::-webkit-scrollbar,
+.reviews-carousel::-webkit-scrollbar {
+    height: 8px;
+}
+.photo-grid-scroll::-webkit-scrollbar-thumb,
+.reviews-carousel::-webkit-scrollbar-thumb {
+    background: var(--soft-pink);
+    border-radius: 10px;
+}
+
+/* --- Refined Photo 2-Row Scroll --- */
+.photo-grid-scroll {
+    display: grid !important;
+    /* Two rows of exactly 320px to give enough breathing room */
+    grid-template-rows: repeat(2, 320px); 
+    grid-auto-flow: column;
+    grid-auto-columns: 260px; 
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.photo-grid-scroll .testimony-card {
+    background: white;
+    border-radius: 15px;
+    padding: 12px; /* Uniform padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps image at top, text at bottom */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    scroll-snap-align: start;
+    transition: all 0.3s ease;
+    /* Prevents content from ever spilling out */
+    overflow: hidden; 
+    box-sizing: border-box; 
+}
+
+/* Fix the image sizing */
+.photo-grid-scroll .testimony-card img {
+    width: 100%;
+    height: 230px; /* Reduced slightly to make room for text */
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+/* Fix the text spacing */
+.photo-grid-scroll .client-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--poster-orange);
+    text-align: center;
+    margin: 0;
+    padding-bottom: 5px;
+    /* Ensures long text wraps instead of breaking the card */
+    word-wrap: break-word; 
+}
+
+/* Hover/Touch Pop */
+.photo-grid-scroll .testimony-card:hover,
+.photo-grid-scroll .testimony-card:active {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+}
+
+.reviews-carousel {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 25px;
+    padding: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.reviews-carousel .testimony-card {
+    flex: 0 0 350px; /* Prevents the "smoosh" */
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    scroll-snap-align: start;
 }
