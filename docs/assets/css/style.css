@@ -653,6 +653,9 @@ header {
     .services-grid {
         grid-template-columns: 1fr;
     }
+    .hero {
+    padding: 0% 0% 0% 0%;
+}
 }
 
 /* Optional: To center the bottom 2 items on the second row */
